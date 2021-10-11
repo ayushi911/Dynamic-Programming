@@ -9,4 +9,4 @@ def mincost(arr,i,j):
   return mini
 
 arr = [1, 2, 3, 4, 3]
-print(mincost(arr,0,len(arr)-1))
+print(mincost(arr,1,len(arr)-1))
