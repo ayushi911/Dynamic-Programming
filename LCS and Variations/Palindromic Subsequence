@@ -1,0 +1,39 @@
+VARIATION 1
+LONGEST PALINDROMIC SUBSEQUENCE(LPS)
+   Find the LCS for the string s anf the reverese of s. Eg. s = agbcba so the reverse(s) = t = abcbga and the LCS of s and t is abcba, which is a palindrome.
+----------------------------------------------------------------------
+VARIATION 2
+Minimum no. of deletions to make a string a palindrome.
+   No. of deletions = len(str)-len(LCS(str, reverse(str))
+   Same goes for the minimum no. of addtions = len(str)-len(LCS(str, reverse(str))
+----------------------------------------------------------------------   
+VARIATION 3
+Printing the shortest common supersequence
+   Length of shortest common supersequence of two strings(a,b) is len(a) + len(b) - len(LCS(a, b))
+   For printing the shortest common supersequence we have the following code snippet
+   
+   i=m;j=n;
+      while(i>0 && j>0){
+         if(a[i-1]==b[j-1]){ res += x[i-1]; i--; j--;}
+         else{
+            if(t[i][j-1]>t[i-1][j]){res += a[i-1]; j--;}
+            else {res += b[j-1]; i--;}
+            }
+         }
+      while(i>0){ res += x[i-1]; i--;}
+      while(j>0){ res += y[j-1]; j--;}
+      reverse(res.begin(), res.end());
+   return res;
+   }
+----------------------------------------------------------------------     
+VARIATION 4
+Length of longest repeating subsequence
+   In the code for the LCS we just put the following extra condition
+   if(a[i-1]==b[j-1] && i!=j)
+      t[i][j]=t[i-1][j-1] + 1;
+   else
+      t[i][j] = max( t[i-1][j] , t[i][j-1]);
+----------------------------------------------------------------------     
+VARIATION 5
+Is a string x a subsequence of y
+    So to check this if len(x) = LCS(x,y)
